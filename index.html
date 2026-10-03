@@ -85,7 +85,7 @@
                     <span id="icon-day1" class="text-rose-400 font-bold">▼</span>
                 </button>
                 <div id="content-day1" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
-                    <p><strong>⏱ Time:</strong> 07:00 AM – 12:00 PM</p>
+                    <p><strong>⏱ Time:</strong> 07:00 AM – 17:00 PM</p>
                     <p><strong>📍 Place:</strong> Gunung Pancar, Sentul, Bogor</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gunung+Pancar+Sentul" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
                     <p><strong>📝 Notes:</strong> Shaded pine forest trails with gentle elevation. Great warm-up hike to test stamina and break in hiking shoes before East Java. Optional sulfur hot springs at the end!</p>
@@ -291,16 +291,17 @@
             </div>
         </div>
 
-        <!-- TAB 4: BUDGET & SPLIT PAYMENTS (STATIC ASSIGNMENTS) -->
+        <!-- TAB 4: BUDGET & SPLIT PAYMENTS (BLANK / UNPAID) -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
             <!-- Budget Table -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
                 <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Payment Responsibility & Split Breakdown</h2>
+                <p class="text-xs text-slate-500 mb-4">No payments have been made yet. Assigned payers and upfront amounts are left blank until you make bookings.</p>
                 <table class="w-full text-left text-sm text-slate-600">
                     <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
                             <th class="p-3 rounded-l-xl">Expense Category</th>
-                            <th class="p-3">Total Cost</th>
+                            <th class="p-3">Total Cost (Estimated)</th>
                             <th class="p-3">Assigned Payer</th>
                             <th class="p-3 rounded-r-xl">Amount Paid Upfront</th>
                         </tr>
@@ -309,65 +310,64 @@
                         <tr>
                             <td class="p-3 font-medium">Jakarta ⇄ Malang Trains (2 Tickets Each)</td>
                             <td class="p-3 font-semibold text-rose-600">Rp3,080,000</td>
-                            <td class="p-3">Elvia (Outbound) & Chiara (Return)</td>
-                            <td class="p-3">Rp1,540,000 each</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">3-Star Hotel (3 Nights: Nov 11–13)</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,500,000</td>
-                            <td class="p-3">Elvia</td>
-                            <td class="p-3">Rp1,500,000</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Local Transport (Ride-hailing + Batu Driver)</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,100,000</td>
-                            <td class="p-3">Chiara</td>
-                            <td class="p-3">Rp1,100,000</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Bromo Jeep & Guide Package</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,000,000</td>
-                            <td class="p-3">Chiara</td>
-                            <td class="p-3">Rp1,000,000</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Park Entrance Fees (Hikes + Bromo + Waterfalls)</td>
                             <td class="p-3 font-semibold text-rose-600">Rp400,000</td>
-                            <td class="p-3">Elvia</td>
-                            <td class="p-3">Rp400,000</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Food & Contingency Buffer (Shared)</td>
                             <td class="p-3 font-semibold text-rose-600">Rp2,000,000</td>
-                            <td class="p-3">Split as incurred on the spot</td>
-                            <td class="p-3">Shared equally</td>
+                            <td class="p-3 text-slate-400">-</td>
+                            <td class="p-3 text-slate-400">-</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Permanent Static Settlement Card -->
+            <!-- Permanent Settlement Summary (Blank / Unpaid) -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 space-y-4">
                 <h2 class="text-lg font-bold text-slate-800">🤝 Permanent Settlement Summary</h2>
-                <p class="text-xs text-slate-500">Based on the pre-booked split above, here is the exact final amount to settle between Elvia and Chiara:</p>
+                <p class="text-xs text-slate-500">No payments have been logged yet. Once you make a payment (Elvia/Chiara), let me know and we will update this section!</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-1">
                         <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Elvia Paid Upfront Total</span>
-                        <p class="text-xl font-bold text-slate-800">Rp3,440,000</p>
-                        <p class="text-xs text-slate-500">Outbound Train + Hotel + Entrances</p>
+                        <p class="text-xl font-bold text-slate-800">Rp0</p>
+                        <p class="text-xs text-slate-500">No payments yet</p>
                     </div>
                     <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-1">
                         <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Chiara Paid Upfront Total</span>
-                        <p class="text-xl font-bold text-slate-800">Rp3,640,000</p>
-                        <p class="text-xs text-slate-500">Return Train + Local Transport + Bromo Jeep</p>
+                        <p class="text-xl font-bold text-slate-800">Rp0</p>
+                        <p class="text-xs text-slate-500">No payments yet</p>
                     </div>
                 </div>
 
                 <div class="p-5 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl text-center space-y-1 shadow-xs">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-pink-100">Final Settlement Transfer</h3>
-                    <p class="text-lg font-bold">✨ Elvia needs to pay Chiara: <span class="text-xl underline">Rp100,000</span> ✨</p>
-                    <p class="text-xs text-pink-100 mt-1">This perfectly balances out all pre-booked shared expenses!</p>
+                    <p class="text-lg font-bold">✨ No payments made yet. Balance is Rp0 ✨</p>
                 </div>
             </div>
         </div>
@@ -383,7 +383,7 @@
                         <li><strong class="text-slate-700">Station Arrival Time:</strong> 17:50 – 18:05 (45–60 mins prior)</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> 18:50 (Nov 10)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 07:06 (Nov 11) at Stasiun Malang Kota Baru</li>
-                        <li><strong class="text-slate-700">Booked & Paid by:</strong> Elvia (~Rp1,540,000 for 2 tickets)</li>
+                        <li><strong class="text-slate-700">Booked & Paid by:</strong> <span class="text-slate-400 italic">Not booked yet</span></li>
                     </ul>
                 </div>
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
@@ -393,7 +393,7 @@
                         <li><strong class="text-slate-700">Departure Station:</strong> Stasiun Malang Kota Baru</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> ~16:00 (Nov 14)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 03:50 – 04:10 (Nov 15) at Gambir Station</li>
-                        <li><strong class="text-slate-700">Booked & Paid by:</strong> Chiara (~Rp1,540,000 for 2 tickets)</li>
+                        <li><strong class="text-slate-700">Booked & Paid by:</strong> <span class="text-slate-400 italic">Not booked yet</span></li>
                     </ul>
                 </div>
             </div>
