@@ -3,158 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indonesia Trip Planner Dashboard (Nov 2026)</title>
+    <title>🌸 My Dream Indonesia Trip Dashboard 🌸</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Quicksand', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
+<body class="bg-pink-50/60 text-slate-700 min-h-screen">
     <!-- Header -->
-    <header class="bg-emerald-700 text-white shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+    <header class="bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-md rounded-b-3xl">
+        <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div>
-                <h1 class="text-2xl md:text-3xl font-bold"> Indonesia Adventure Dashboard</h1>
-                <p class="text-emerald-100 text-sm mt-1">Jakarta, Bogor, Sentul & East Java (Malang & Bromo)</p>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-wide">🌸 Indonesia Adventure 🌸</h1>
+                <p class="text-pink-100 text-sm mt-1">Jakarta, Bogor, Sentul & East Java (Malang & Bromo)</p>
             </div>
-            <div class="mt-4 md:mt-0 bg-emerald-800/80 px-4 py-2 rounded-lg text-sm border border-emerald-600">
-                <span class="font-semibold">Budget Status:</span> <span class="text-emerald-300 font-bold">PASS (Rp4.59M / person)</span>
+            <div class="mt-4 md:mt-0 bg-white/20 backdrop-blur-xs px-4 py-2 rounded-2xl text-sm border border-white/30">
+                <span class="font-semibold">Budget Status:</span> <span class="text-white font-bold">PASS (Rp4.59M / person) ✨</span>
             </div>
         </div>
     </header>
 
     <!-- Navigation Tabs -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-xs">
-        <div class="max-w-6xl mx-auto px-4 flex space-x-2 md:space-x-8 overflow-x-auto">
-            <button onclick="switchTab('overview')" class="tab-btn py-4 px-3 border-b-2 font-medium text-sm transition-colors border-emerald-600 text-emerald-600 cursor-pointer whitespace-nowrap">Overview</button>
-            <button onclick="switchTab('itinerary')" class="tab-btn py-4 px-3 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-slate-700 cursor-pointer whitespace-nowrap">Daily Itinerary</button>
-            <button onclick="switchTab('packing')" class="tab-btn py-4 px-3 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-slate-700 cursor-pointer whitespace-nowrap">Packing & Prep</button>
-            <button onclick="switchTab('budget')" class="tab-btn py-4 px-3 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-slate-700 cursor-pointer whitespace-nowrap">Budget Audit</button>
-            <button onclick="switchTab('transport')" class="tab-btn py-4 px-3 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-slate-700 cursor-pointer whitespace-nowrap">Train & Transit</button>
+    <nav class="bg-white/80 backdrop-blur-md border-b border-pink-100 sticky top-0 z-10 shadow-xs mt-4">
+        <div class="max-w-4xl mx-auto px-4 flex space-x-2 md:space-x-6 overflow-x-auto justify-start md:justify-center">
+            <button onclick="switchTab('overview')" class="tab-btn py-3 px-4 border-b-2 font-bold text-sm transition-colors border-rose-500 text-rose-600 cursor-pointer whitespace-nowrap rounded-t-xl">Overview ✨</button>
+            <button onclick="switchTab('itinerary')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Daily Itinerary 🗓️</button>
+            <button onclick="switchTab('packing')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Packing List 🎒</button>
+            <button onclick="switchTab('budget')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Budget 💰</button>
+            <button onclick="switchTab('transport')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Trains 🚆</button>
         </div>
     </nav>
 
     <!-- Main Content Container -->
-    <main class="max-w-6xl mx-auto px-4 py-8">
+    <main class="max-w-4xl mx-auto px-4 py-8">
 
         <!-- TAB 1: OVERVIEW -->
         <div id="tab-overview" class="tab-content space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                    <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Travel Window</h3>
-                    <p class="text-lg font-bold text-slate-800 mt-2">Nov 7 – Nov 15, 2026</p>
-                    <p class="text-sm text-slate-500 mt-1">Weekend hikes + 5-day East Java trip</p>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                    <h3 class="text-rose-400 text-xs font-bold uppercase tracking-wider">Travel Window</h3>
+                    <p class="text-lg font-bold text-slate-800 mt-2">Nov 8 – Nov 15, 2026</p>
+                    <p class="text-sm text-slate-500 mt-1">Weekend hikes + East Java trip</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                    <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Travelers & Style</h3>
-                    <p class="text-lg font-bold text-slate-800 mt-2">2 Travelers</p>
-                    <p class="text-sm text-slate-500 mt-1">Moderate pace, 3-star hotels, Jeep Bromo</p>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                    <h3 class="text-rose-400 text-xs font-bold uppercase tracking-wider">Travelers & Style</h3>
+                    <p class="text-lg font-bold text-slate-800 mt-2">2 Travelers 👯‍♀️</p>
+                    <p class="text-sm text-slate-500 mt-1">Moderate pace, 3-star, Jeep Bromo</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                    <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Dietary Requirement</h3>
-                    <p class="text-lg font-bold text-slate-800 mt-2">Vegetarian & Allium-Free</p>
-                    <p class="text-sm text-slate-500 mt-1">No onion, garlic, shallots, leeks, chives</p>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                    <h3 class="text-rose-400 text-xs font-bold uppercase tracking-wider">Dietary Requirement</h3>
+                    <p class="text-lg font-bold text-slate-800 mt-2">Vegetarian & Allium-Free 🥗</p>
+                    <p class="text-sm text-slate-500 mt-1">No onion, garlic, shallots, chives</p>
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">Trip Summary Roadmap</h2>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                <h2 class="text-lg font-bold text-slate-800 mb-4">💖 Quick Roadmap Summary</h2>
                 <ul class="space-y-3 text-sm text-slate-600">
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 8</span> Warm-up hike at Gunung Pancar (Sentul)</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 9</span> Scenic nature walk at Enchanting Valley (Puncak)</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 10</span> Evening departure via KA Gajayana from Gambir to Malang</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 11</span> Arrive in Malang; Kajoetangan Heritage Village walk</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 12</span> Batu highland waterfalls (Coban Rondo) & orchards</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 13</span> Pre-dawn Jeep-only Mount Bromo sunrise & Sea of Sand</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 14</span> Rest, souvenirs, and executive night train back to Jakarta</li>
-                    <li class="flex items-start"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs mr-3">Nov 15</span> Arrive home in Jakarta at dawn</li>
+                    <li class="flex items-start"><span class="bg-pink-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full text-xs mr-3">Nov 8</span> Gunung Pancar warm-up hike (Sentul) 🌲</li>
+                    <li class="flex items-start"><span class="bg-pink-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full text-xs mr-3">Nov 9</span> Enchanting Valley nature walk (Puncak) 🍃</li>
+                    <li class="flex items-start"><span class="bg-pink-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full text-xs mr-3">Nov 10</span> Evening departure via KA Gajayana from Gambir to Malang 🚆</li>
+                    <li class="flex items-start"><span class="bg-pink-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full text-xs mr-3">Nov 11–14</span> Malang heritage, Batu waterfalls, Bromo sunrise jeep & return train ✨</li>
+                    <li class="flex items-start"><span class="bg-pink-100 text-rose-700 font-bold px-2.5 py-0.5 rounded-full text-xs mr-3">Nov 15</span> Arrive home safely in Jakarta at dawn 🏡</li>
                 </ul>
             </div>
         </div>
 
-        <!-- TAB 2: ITINERARY -->
-        <div id="tab-itinerary" class="tab-content hidden space-y-6">
-            <div class="space-y-4">
-                <!-- Day Card -->
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Sunday, Nov 8</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Gunung Pancar Warm-Up Hike</h3>
-                    <p class="text-sm text-slate-600 mt-2">Shaded pine forest trails and natural sulfur hot springs in Sentul. Moderate cardio conditioning.</p>
+        <!-- TAB 2: DAILY ITINERARY -->
+        <div id="tab-itinerary" class="tab-content hidden space-y-4">
+            <h2 class="text-lg font-bold text-slate-800 mb-1">🎀 Detailed Daily Itinerary</h2>
+            <p class="text-xs text-slate-500 mb-4">Click any day card to expand and view times, notes, Google Maps links, and prices!</p>
+
+            <!-- Day 1 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day1')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 8</span>
+                        <span class="font-bold text-slate-800">Gunung Pancar Warm-Up Hike (Sentul)</span>
+                    </div>
+                    <span id="icon-day1" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day1" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 07:00 AM – 12:00 PM</p>
+                    <p><strong>📍 Place:</strong> Gunung Pancar, Sentul, Bogor</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gunung+Pancar+Sentul" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Shaded pine forest trails with gentle elevation. Great warm-up hike to test stamina and break in hiking shoes before East Java. Optional sulfur hot springs at the end!</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp50,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Monday, Nov 9</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Enchanting Valley (Puncak)</h3>
-                    <p class="text-sm text-slate-600 mt-2">Scenic highland nature walk near Taman Safari with mountain views and photography spots.</p>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day2')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 9</span>
+                        <span class="font-bold text-slate-800">Enchanting Valley (Puncak, Bogor)</span>
+                    </div>
+                    <span id="icon-day2" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day2" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 08:30 AM – 01:00 PM</p>
+                    <p><strong>📍 Place:</strong> Enchanting Valley by Taman Safari, Cisarua, Bogor</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Enchanting+Valley+Taman+Safari+Bogor" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Scenic highland nature walk near Taman Safari featuring misty mountain views, gardens, and light walking trails. Excellent for cute photos and content creation.</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp100,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Tuesday, Nov 10 (Evening)</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Departure to Malang</h3>
-                    <p class="text-sm text-slate-600 mt-2">Arrive at Gambir by 17:50. Board KA Gajayana (#36) at 18:50. Overnight train journey.</p>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day3')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 10</span>
+                        <span class="font-bold text-slate-800">Evening Departure to Malang (KA Gajayana)</span>
+                    </div>
+                    <span id="icon-day3" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day3" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 17:50 (Station Arrival) | 18:50 (Train Departure)</p>
+                    <p><strong>📍 Place:</strong> Gambir Station, Central Jakarta → Stasiun Malang Kota Baru</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gambir+Station+Jakarta" target="_blank" class="text-rose-500 underline font-semibold">Open Gambir Station ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Arrive 45–60 mins before departure. Pack allium-free vegetarian backup snacks for the train ride. Sleep overnight in executive carriage.</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp650,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Wednesday, Nov 11</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Arrival & Kajoetangan Heritage Village</h3>
-                    <p class="text-sm text-slate-600 mt-2">Arrive at Malang Kotabaru at 07:06. Hotel check-in, rest, and afternoon walk through Dutch-colonial vintage alleyways.</p>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day4')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 11</span>
+                        <span class="font-bold text-slate-800">Arrival in Malang & Kajoetangan Heritage Village</span>
+                    </div>
+                    <span id="icon-day4" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day4" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 07:06 AM (Arrival) & 13:00 – 17:00 (Exploration)</p>
+                    <p><strong>📍 Place:</strong> Stasiun Malang Kota Baru & Kajoetangan Heritage Village</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Kajoetangan+Heritage+Village+Malang" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Check into 3-star hotel, rest, then walk through vintage Dutch-colonial alleyways. Use allium-free dietary card at dinner!</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp250,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Thursday, Nov 12</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Batu Highlands & Coban Rondo Waterfall</h3>
-                    <p class="text-sm text-slate-600 mt-2">Private day driver to Coban Rondo waterfall trail, apple orchards, and a cozy mountain-view cafe.</p>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day5')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 12</span>
+                        <span class="font-bold text-slate-800">Batu Highlands & Coban Rondo Waterfall</span>
+                    </div>
+                    <span id="icon-day5" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day5" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 09:00 AM – 04:30 PM</p>
+                    <p><strong>📍 Place:</strong> Coban Rondo Waterfall & Batu Orchards</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Coban+Rondo+Waterfall+Pujon" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Private charter driver takes you to cooler Batu mountain town. Flat shaded nature trail to Coban Rondo waterfall, fruit orchards, and mountain-view cafe.</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp300,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Friday, Nov 13</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Jeep-Only Mount Bromo Sunrise</h3>
-                    <p class="text-sm text-slate-600 mt-2">01:30 AM Jeep pickup. Sunrise at King Kong Hill, Sea of Sand traverse (skipping strenuous steps), and Whispering Savannah.</p>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day6')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 13</span>
+                        <span class="font-bold text-slate-800">Jeep-Only Mount Bromo Sunrise & Sea of Sand</span>
+                    </div>
+                    <span id="icon-day6" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day6" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> 01:30 AM – 11:00 AM</p>
+                    <p><strong>📍 Place:</strong> King Kong Hill & Mount Bromo Tengger Caldera</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=King+Kong+Hill+Mount+Bromo" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> 4x4 Jeep pickup at hotel lobby at 01:30 AM. Sunrise at viewpoint, Sea of Sand traverse (skipping strenuous steps), and Whispering Savannah. Afternoon rest!</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp500,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Saturday, Nov 14</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Souvenirs & Executive Return Train</h3>
-                    <p class="text-sm text-slate-600 mt-2">Relaxed morning, local shopping, and afternoon train back to Jakarta.</p>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day7')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 14</span>
+                        <span class="font-bold text-slate-800">Souvenirs & Executive Return Train</span>
+                    </div>
+                    <span id="icon-day7" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day7" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> Morning relax & ~16:00 Train Departure</p>
+                    <p><strong>📍 Place:</strong> Malang Souvenir Shops & Stasiun Malang Kota Baru</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Stasiun+Malang+Kota+Baru" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Slow morning, buy local snacks, check out, and board KA Brawijaya (~16:00) back to Jakarta. Sleep overnight on train.</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp650,000 / person</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Sunday, Nov 15</span>
-                    <h3 class="text-lg font-bold text-slate-800 mt-1">Arrival Home</h3>
-                    <p class="text-sm text-slate-600 mt-2">Arrive back in Jakarta at dawn to unpack and rest.</p>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="bg-white rounded-3xl shadow-sm border border-pink-100 overflow-hidden">
+                <button onclick="toggleAccordion('day8')" class="w-full p-5 text-left flex justify-between items-center bg-white hover:bg-pink-50/50 cursor-pointer transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-pink-100 text-rose-700 font-bold px-3 py-1 rounded-full text-xs">Nov 15</span>
+                        <span class="font-bold text-slate-800">Arrival Home in Jakarta</span>
+                    </div>
+                    <span id="icon-day8" class="text-rose-400 font-bold">▼</span>
+                </button>
+                <div id="content-day8" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
+                    <p><strong>⏱ Time:</strong> ~03:50 AM (Train Arrival)</p>
+                    <p><strong>📍 Place:</strong> Gambir Station, Jakarta</p>
+                    <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gambir+Station+Jakarta" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📝 Notes:</strong> Arrive back in Jakarta at dawn, head home, unpack, and rest before your classes/routine resume.</p>
+                    <p><strong>💰 Estimated Price:</strong> Rp0</p>
                 </div>
             </div>
         </div>
 
         <!-- TAB 3: PACKING CHECKLIST -->
         <div id="tab-packing" class="tab-content hidden space-y-6">
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">Interactive Packing Checklist</h2>
-                <div class="space-y-3" id="checklist-container">
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
-                        <span class="text-sm text-slate-700">Broken-in trekking shoes / hiking sneakers with good traction</span>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                <h2 class="text-lg font-bold text-slate-800 mb-4">🎒 Cute Packing & Prep Checklist</h2>
+                <div class="space-y-3">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <span class="text-sm text-slate-700">Broken-in trekking shoes / hiking sneakers with reliable traction</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Lightweight moisture-wicking layers & breathable pants</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Waterproof windbreaker / rain jacket (November wet season)</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
-                        <span class="text-sm text-slate-700">Warm layers / hoodie for cold mountain mornings (Bromo) & train AC</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <span class="text-sm text-slate-700">Warm hoodie / jacket for cold mountain mornings (Bromo) & train AC</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">15–20L daypack with rain cover</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
-                        <span class="text-sm text-slate-700">Allum-free vegetarian backup snacks, protein bars, & trail mix</span>
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <span class="text-sm text-slate-700">Allium-free vegetarian backup snacks, protein bars, & trail mix</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Reusable water bottle & power bank</span>
                     </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-slate-50 rounded-lg">
-                        <input type="checkbox" class="w-5 h-5 text-emerald-600 rounded border-slate-300 focus:ring-emerald-500">
+                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
+                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Personal medications, insect repellent, & blister plasters</span>
                     </label>
                 </div>
@@ -163,73 +263,73 @@
 
         <!-- TAB 4: BUDGET -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200 overflow-x-auto">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">Realistic Budget Breakdown (2 Travelers)</h2>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
+                <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Realistic Budget Breakdown (2 Travelers)</h2>
                 <table class="w-full text-left text-sm text-slate-600">
-                    <thead class="bg-slate-100 text-slate-700 uppercase text-xs">
+                    <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
-                            <th class="p-3">Expense Category</th>
+                            <th class="p-3 rounded-l-xl">Expense Category</th>
                             <th class="p-3">Low Estimate</th>
                             <th class="p-3">Realistic Estimate</th>
-                            <th class="p-3">Conservative</th>
+                            <th class="p-3 rounded-r-xl">Conservative</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-200">
+                    <tbody class="divide-y divide-pink-50">
                         <tr>
-                            <td class="p-3 font-medium">Jakarta ⇄ Malang Return Train</td>
+                            <td class="p-3 font-medium">Jakarta ⇄ Malang Return Train (Gajayana/Brawijaya)</td>
                             <td class="p-3">Rp2,600,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp2,840,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp2,840,000</td>
                             <td class="p-3">Rp3,200,000</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-medium">Local Transport (Ride-hailing + Driver)</td>
+                            <td class="p-3 font-medium">Local Transport (Ride-hailing + Batu Driver)</td>
                             <td class="p-3">Rp800,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp1,100,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp1,100,000</td>
                             <td class="p-3">Rp1,400,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">3-Star Hotel (3 Nights: Nov 11–13)</td>
                             <td class="p-3">Rp1,200,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp1,500,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp1,500,000</td>
                             <td class="p-3">Rp1,900,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Food & Dietary Needs (All Meals)</td>
                             <td class="p-3">Rp900,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp1,200,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp1,200,000</td>
                             <td class="p-3">Rp1,500,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Bromo Jeep & Guide Package</td>
                             <td class="p-3">Rp800,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp1,000,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp1,000,000</td>
                             <td class="p-3">Rp1,300,000</td>
                         </tr>
                         <tr>
-                            <td class="p-3 font-medium">Park Entrance Fees</td>
+                            <td class="p-3 font-medium">Park Entrance Fees (Hikes + Bromo + Waterfalls)</td>
                             <td class="p-3">Rp300,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp400,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp400,000</td>
                             <td class="p-3">Rp500,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Contingency Buffer</td>
                             <td class="p-3">Rp500,000</td>
-                            <td class="p-3 font-semibold text-slate-800">Rp800,000</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp800,000</td>
                             <td class="p-3">Rp1,200,000</td>
                         </tr>
                     </tbody>
-                    <tfoot class="bg-slate-50 font-bold text-slate-800">
+                    <tfoot class="bg-pink-50/50 font-bold text-slate-800">
                         <tr>
-                            <td class="p-3">TOTAL FOR 2 TRAVELERS</td>
+                            <td class="p-3 rounded-l-xl">TOTAL FOR 2 TRAVELERS</td>
                             <td class="p-3">Rp7,300,000</td>
-                            <td class="p-3 text-emerald-600">Rp9,190,000</td>
-                            <td class="p-3">Rp11,800,000</td>
+                            <td class="p-3 text-rose-600">Rp9,190,000</td>
+                            <td class="p-3 rounded-r-xl">Rp11,800,000</td>
                         </tr>
                         <tr>
-                            <td class="p-3">TOTAL PER PERSON</td>
+                            <td class="p-3 rounded-l-xl">TOTAL PER PERSON</td>
                             <td class="p-3">Rp3,650,000</td>
-                            <td class="p-3 text-emerald-600">Rp4,595,000</td>
-                            <td class="p-3">Rp5,900,000</td>
+                            <td class="p-3 text-rose-600">Rp4,595,000 ✨</td>
+                            <td class="p-3 rounded-r-xl">Rp5,900,000</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -239,18 +339,18 @@
         <!-- TAB 5: TRANSPORT -->
         <div id="tab-transport" class="tab-content hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                    <h3 class="text-base font-bold text-slate-800 mb-3">Outbound: Jakarta to Malang</h3>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                    <h3 class="text-base font-bold text-slate-800 mb-3">🚆 Outbound: Jakarta to Malang</h3>
                     <ul class="space-y-2 text-sm text-slate-600">
                         <li><strong class="text-slate-700">Train:</strong> KA Gajayana (Train #36) Executive Class</li>
-                        <li><strong class="text-slate-700">Departure Station:</strong> Gambir Station, Jakarta</li>
+                        <li><strong class="text-slate-700">Departure Station:</strong> Gambir Station, Central Jakarta</li>
                         <li><strong class="text-slate-700">Station Arrival Time:</strong> 17:50 – 18:05 (45–60 mins prior)</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> 18:50 (Nov 10)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 07:06 (Nov 11) at Stasiun Malang Kota Baru</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                    <h3 class="text-base font-bold text-slate-800 mb-3">Return: Malang to Jakarta</h3>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                    <h3 class="text-base font-bold text-slate-800 mb-3">🚆 Return: Malang to Jakarta</h3>
                     <ul class="space-y-2 text-sm text-slate-600">
                         <li><strong class="text-slate-700">Train:</strong> KA Brawijaya Executive Class</li>
                         <li><strong class="text-slate-700">Departure Station:</strong> Stasiun Malang Kota Baru</li>
@@ -263,23 +363,29 @@
 
     </main>
 
-    <!-- JavaScript for Tab Switching -->
+    <!-- JavaScript for Interactivity -->
     <script>
         function switchTab(tabId) {
-            // Hide all contents
-            document.querySelectorAll('.tab-content').forEach(el => {
-                el.classList.add('hidden');
-            });
-            // Remove active style from all buttons
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('border-emerald-600', 'text-emerald-600');
-                btn.classList.add('border-transparent', 'text-slate-500');
+                btn.classList.remove('border-rose-500', 'text-rose-600', 'font-bold');
+                btn.classList.add('border-transparent', 'text-slate-500', 'font-medium');
             });
-            // Show target content
             document.getElementById('tab-' + tabId).classList.remove('hidden');
-            // Highlight target button
-            event.currentTarget.classList.add('border-emerald-600', 'text-emerald-600');
-            event.currentTarget.classList.remove('border-transparent', 'text-slate-500');
+            event.currentTarget.classList.add('border-rose-500', 'text-rose-600', 'font-bold');
+            event.currentTarget.classList.remove('border-transparent', 'text-slate-500', 'font-medium');
+        }
+
+        function toggleAccordion(dayId) {
+            const content = document.getElementById('content-' + dayId);
+            const icon = document.getElementById('icon-' + dayId);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.textContent = '▲';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '▼';
+            }
         }
     </script>
 </body>
