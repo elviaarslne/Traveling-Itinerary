@@ -221,9 +221,9 @@
             </div>
         </div>
 
-        <!-- TAB 3: PACKING CHECKLIST -->
+        <!-- TAB 3: PACKING CHECKLIST (RESTORED GENERAL ESSENTIALS + DAY-BY-DAY GUIDE) -->
         <div id="tab-packing" class="tab-content hidden space-y-6">
-            <!-- Overall Essentials Card -->
+            <!-- Overall Essentials Card with Checkboxes -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
                 <h2 class="text-lg font-bold text-slate-800 mb-3">🎒 Overall General Packing Checklist</h2>
                 <p class="text-xs text-slate-500 mb-4">Core essentials to bring across the entire trip (checkboxes save on your phone automatically!).</p>
@@ -294,23 +294,47 @@
 
         <!-- TAB 4: BUDGET & INTERACTIVE SPLITS -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
-            <!-- Interactive Budget Table -->
+            <!-- Budget vs Actual Table -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
-                <h2 class="text-lg font-bold text-slate-800 mb-2">💰 Interactive Split Payment Tracker</h2>
-                <p class="text-xs text-slate-500 mb-4">Check who paid for each booking directly on your phone. Changes save automatically!</p>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-800">💰 Budget vs. Actual Split Tracker</h2>
+                        <p class="text-xs text-slate-500">Edit names/costs inline, check who paid, or delete items!</p>
+                    </div>
+                    <button onclick="resetExpenses()" class="mt-2 md:mt-0 text-xs bg-pink-100 text-rose-600 px-3 py-1.5 rounded-xl font-bold hover:bg-pink-200 transition-colors">Reset Defaults</button>
+                </div>
+
                 <table class="w-full text-left text-sm text-slate-600">
                     <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
                             <th class="p-3 rounded-l-xl">Expense Category</th>
-                            <th class="p-3">Total Cost</th>
+                            <th class="p-3">Estimated Budget</th>
+                            <th class="p-3">Actual Cost</th>
                             <th class="p-3 text-center">Elvia Paid [✓]</th>
-                            <th class="p-3 rounded-r-xl text-center">Chiara Paid [✓]</th>
+                            <th class="p-3 text-center">Chiara Paid [✓]</th>
+                            <th class="p-3 rounded-r-xl text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody id="budgetTableBody" class="divide-y divide-pink-50">
                         <!-- Populated dynamically via JS -->
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Add Custom Live Expense Card -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 space-y-4">
+                <h2 class="text-lg font-bold text-slate-800">➕ Add New Live Expense</h2>
+                <p class="text-xs text-slate-500">Traveling and bought something extra? Add your actual live expenses here right from your phone!</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <input type="text" id="newExpName" placeholder="Expense Name (e.g., Dinner, Taxi)" class="bg-pink-50/50 p-3 rounded-2xl border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                    <input type="number" id="newExpCost" placeholder="Actual Cost in IDR (e.g., 150000)" class="bg-pink-50/50 p-3 rounded-2xl border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                    <select id="newExpPayer" class="bg-pink-50/50 p-3 rounded-2xl border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                        <option value="elvia">Paid by Elvia</option>
+                        <option value="chiara">Paid by Chiara</option>
+                    </select>
+                </div>
+                <button onclick="addCustomExpense()" class="w-full bg-gradient-to-r from-pink-400 to-rose-400 text-white font-bold py-3 rounded-2xl shadow-xs hover:opacity-95 transition-opacity">Add Expense Live 🚀</button>
             </div>
 
             <!-- Live Settlement Summary Card -->
@@ -329,13 +353,13 @@
                 </div>
 
                 <div class="p-3 bg-slate-50 rounded-2xl text-center text-xs text-slate-500 flex justify-around">
-                    <span>Total Trip Cost: <strong id="totalTripCost" class="text-slate-700">Rp0</strong></span>
-                    <span>Fair Share Per Person: <strong id="fairShareCost" class="text-slate-700">Rp0</strong></span>
+                    <span>Total Actual Cost (All Items): <strong id="totalTripCost" class="text-slate-700">Rp0</strong></span>
+                    <span>Fair Share Per Person (Paid): <strong id="fairShareCost" class="text-slate-700">Rp0</strong></span>
                 </div>
 
                 <div class="p-5 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl text-center space-y-1 shadow-xs">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-pink-100">Final Settlement Transfer</h3>
-                    <p id="settlementMessage" class="text-lg font-bold">✨ Check expenses above to calculate balance ✨</p>
+                    <p id="settlementMessage" class="text-lg font-bold">✨ Check expense boxes above as you make payments ✨</p>
                 </div>
             </div>
         </div>
@@ -369,16 +393,21 @@
 
     </main>
 
-    <!-- JavaScript for Interactivity, Checkboxes & Live Budget Calculation -->
+    <!-- JavaScript for Interactivity, Edit, Delete & Correct Settlement Math -->
     <script>
-        const expenses = [
-            { id: 'exp1', name: 'Jakarta ⇄ Malang Trains (2 Tickets Each)', cost: 3080000 },
-            { id: 'exp2', name: '3-Star Hotel (3 Nights: Nov 11–13)', cost: 1500000 },
-            { id: 'exp3', name: 'Local Transport (Ride-hailing + Batu Driver)', cost: 1100000 },
-            { id: 'exp4', name: 'Bromo Jeep & Guide Package', cost: 1000000 },
-            { id: 'exp5', name: 'Park Entrance Fees (Hikes + Bromo + Waterfalls)', cost: 400000 },
-            { id: 'exp6', name: 'Food & Contingency Buffer (Shared)', cost: 2000000 }
+        const defaultExpenses = [
+            { id: 'exp1', name: 'Jakarta ⇄ Malang Trains (2 Tickets Each)', budget: 3080000, actual: 3080000 },
+            { id: 'exp2', name: '3-Star Hotel (3 Nights: Nov 11–13)', budget: 1500000, actual: 1500000 },
+            { id: 'exp3', name: 'Local Transport (Ride-hailing + Batu Driver)', budget: 1100000, actual: 1100000 },
+            { id: 'exp4', name: 'Bromo Jeep & Guide Package', budget: 1000000, actual: 1000000 },
+            { id: 'exp5', name: 'Park Entrance Fees (Hikes + Bromo + Waterfalls)', budget: 400000, actual: 400000 },
+            { id: 'exp6', name: 'Food & Contingency Buffer (Shared)', budget: 2000000, actual: 2000000 }
         ];
+
+        function getExpenses() {
+            const saved = localStorage.getItem('custom_expenses_list_v3');
+            return saved ? JSON.parse(saved) : defaultExpenses;
+        }
 
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -407,61 +436,103 @@
             }
         }
 
-        // Save packing checkbox states
         function saveCheck(checkbox) {
             localStorage.setItem(checkbox.getAttribute('data-id'), checkbox.checked);
         }
 
-        // Render & Calculate Budget Table
         function renderBudgetTable() {
             const tbody = document.getElementById('budgetTableBody');
             tbody.innerHTML = '';
-            let totalCost = 0;
+            let totalActualCost = 0;
             let elviaPaid = 0;
             let chiaraPaid = 0;
 
+            const expenses = getExpenses();
+
             expenses.forEach(exp => {
-                totalCost += exp.cost;
+                totalActualCost += Number(exp.actual) || 0;
                 const elviaChecked = localStorage.getItem(`exp_${exp.id}_elvia`) === 'true';
                 const chiaraChecked = localStorage.getItem(`exp_${exp.id}_chiara`) === 'true';
 
-                if (elviaChecked) elviaPaid += exp.cost;
-                if (chiaraChecked) chiaraPaid += exp.cost;
+                if (elviaChecked) elviaPaid += Number(exp.actual) || 0;
+                if (chiaraChecked) chiaraPaid += Number(exp.actual) || 0;
 
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-pink-50 hover:bg-pink-50/20';
                 tr.innerHTML = `
-                    <td class="p-3 font-medium text-slate-800">${exp.name}</td>
-                    <td class="p-3 font-semibold text-rose-600">Rp${exp.cost.toLocaleString('id-ID')}</td>
+                    <td class="p-3 font-medium text-slate-800">
+                        <input type="text" value="${exp.name}" data-id="${exp.id}" onchange="updateExpenseName(this)" class="w-full bg-pink-50/30 p-1.5 rounded-xl border border-pink-200 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-rose-400">
+                    </td>
+                    <td class="p-3 text-slate-400 text-xs">Rp${Number(exp.budget).toLocaleString('id-ID')}</td>
+                    <td class="p-3 font-semibold text-rose-600">
+                        <input type="number" value="${exp.actual}" data-id="${exp.id}" onchange="updateActualCost(this)" class="w-28 bg-pink-50/50 p-1.5 rounded-xl border border-pink-200 text-xs font-semibold text-rose-600 focus:outline-none focus:ring-1 focus:ring-rose-400">
+                    </td>
                     <td class="p-3 text-center">
                         <input type="checkbox" data-exp="${exp.id}" data-payer="elvia" ${elviaChecked ? 'checked' : ''} onchange="handlePayerChange(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500 cursor-pointer">
                     </td>
                     <td class="p-3 text-center">
                         <input type="checkbox" data-exp="${exp.id}" data-payer="chiara" ${chiaraChecked ? 'checked' : ''} onchange="handlePayerChange(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500 cursor-pointer">
                     </td>
+                    <td class="p-3 text-center">
+                        <button onclick="deleteExpense('${exp.id}')" class="text-rose-400 hover:text-rose-600 p-1 rounded-lg transition-colors" title="Delete Expense">🗑️</button>
+                    </td>
                 `;
                 tbody.appendChild(tr);
             });
 
-            // Update UI elements
             document.getElementById('elviaPaidTotal').textContent = `Rp${elviaPaid.toLocaleString('id-ID')}`;
             document.getElementById('chiaraPaidTotal').textContent = `Rp${chiaraPaid.toLocaleString('id-ID')}`;
-            document.getElementById('totalTripCost').textContent = `Rp${totalCost.toLocaleString('id-ID')}`;
+            document.getElementById('totalTripCost').textContent = `Rp${totalActualCost.toLocaleString('id-ID')}`;
             
-            const fairShare = totalCost / 2;
-            document.getElementById('fairShareCost').textContent = `Rp${Math.round(fairShare).toLocaleString('id-ID')}`;
+            const totalPaidOut = elviaPaid + chiaraPaid;
+            const fairSharePaid = totalPaidOut / 2;
+            document.getElementById('fairShareCost').textContent = `Rp${Math.round(fairSharePaid).toLocaleString('id-ID')}`;
 
-            const diff = elviaPaid - fairShare;
+            const elviaDiff = elviaPaid - fairSharePaid;
             const settlementEl = document.getElementById('settlementMessage');
 
-            if (elviaPaid === 0 && chiaraPaid === 0) {
+            if (totalPaidOut === 0) {
                 settlementEl.innerHTML = `✨ Check expense boxes above as you make payments ✨`;
-            } else if (diff > 0) {
-                settlementEl.innerHTML = `✨ Chiara needs to pay Elvia: <strong class="text-xl underline">Rp${Math.round(diff).toLocaleString('id-ID')}</strong> ✨`;
-            } else if (diff < 0) {
-                settlementEl.innerHTML = `✨ Elvia needs to pay Chiara: <strong class="text-xl underline">Rp${Math.round(Math.abs(diff)).toLocaleString('id-ID')}</strong> ✨`;
+            } else if (elviaDiff > 0) {
+                settlementEl.innerHTML = `✨ Chiara needs to pay Elvia: <strong class="text-xl underline">Rp${Math.round(elviaDiff).toLocaleString('id-ID')}</strong> ✨`;
+            } else if (elviaDiff < 0) {
+                settlementEl.innerHTML = `✨ Elvia needs to pay Chiara: <strong class="text-xl underline">Rp${Math.round(Math.abs(elviaDiff)).toLocaleString('id-ID')}</strong> ✨`;
             } else {
                 settlementEl.innerHTML = `🎉 All balanced! Nobody owes anything. 🎉`;
+            }
+        }
+
+        function updateExpenseName(input) {
+            const id = input.getAttribute('data-id');
+            const val = input.value.trim();
+            let expenses = getExpenses();
+            const target = expenses.find(e => e.id === id);
+            if (target) {
+                target.name = val;
+                localStorage.setItem('custom_expenses_list_v3', JSON.stringify(expenses));
+            }
+        }
+
+        function updateActualCost(input) {
+            const id = input.getAttribute('data-id');
+            const val = parseFloat(input.value) || 0;
+            let expenses = getExpenses();
+            const target = expenses.find(e => e.id === id);
+            if (target) {
+                target.actual = val;
+                localStorage.setItem('custom_expenses_list_v3', JSON.stringify(expenses));
+                renderBudgetTable();
+            }
+        }
+
+        function deleteExpense(id) {
+            if (confirm('Are you sure you want to delete this expense?')) {
+                let expenses = getExpenses();
+                expenses = expenses.filter(e => e.id !== id);
+                localStorage.setItem('custom_expenses_list_v3', JSON.stringify(expenses));
+                localStorage.removeItem(`exp_${id}_elvia`);
+                localStorage.removeItem(`exp_${id}_chiara`);
+                renderBudgetTable();
             }
         }
 
@@ -470,7 +541,6 @@
             const payer = checkbox.getAttribute('data-payer');
             const otherPayer = payer === 'elvia' ? 'chiara' : 'elvia';
 
-            // Ensure mutual exclusivity per row
             if (checkbox.checked) {
                 localStorage.setItem(`exp_${expId}_${payer}`, 'true');
                 localStorage.setItem(`exp_${expId}_${otherPayer}`, 'false');
@@ -480,15 +550,46 @@
             renderBudgetTable();
         }
 
-        // Load saved states on startup
+        function addCustomExpense() {
+            const name = document.getElementById('newExpName').value.trim();
+            const cost = parseFloat(document.getElementById('newExpCost').value) || 0;
+            const payer = document.getElementById('newExpPayer').value;
+
+            if (!name || cost <= 0) {
+                alert('Please enter a valid expense name and cost!');
+                return;
+            }
+
+            let expenses = getExpenses();
+            const newId = 'custom_' + Date.now();
+            expenses.push({ id: newId, name: name, budget: 0, actual: cost });
+            localStorage.setItem('custom_expenses_list_v3', JSON.stringify(expenses));
+
+            localStorage.setItem(`exp_${newId}_${payer}`, 'true');
+
+            document.getElementById('newExpName').value = '';
+            document.getElementById('newExpCost').value = '';
+
+            renderBudgetTable();
+        }
+
+        function resetExpenses() {
+            if (confirm('Reset all budget items and checkboxes to default?')) {
+                localStorage.removeItem('custom_expenses_list_v3');
+                defaultExpenses.forEach(e => {
+                    localStorage.removeItem(`exp_${e.id}_elvia`);
+                    localStorage.removeItem(`exp_${e.id}_chiara`);
+                });
+                renderBudgetTable();
+            }
+        }
+
         window.onload = function() {
-            // Load packing checkboxes
             const checkboxes = document.querySelectorAll('#packingListContainer input[type="checkbox"]');
             checkboxes.forEach(cb => {
                 const saved = localStorage.getItem(cb.getAttribute('data-id'));
                 if (saved === 'true') cb.checked = true;
             });
-            // Initial render of budget table in background
             renderBudgetTable();
         };
     </script>
