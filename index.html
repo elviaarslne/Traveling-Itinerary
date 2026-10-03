@@ -85,7 +85,7 @@
                     <span id="icon-day1" class="text-rose-400 font-bold">▼</span>
                 </button>
                 <div id="content-day1" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
-                    <p><strong>⏱ Time:</strong> 07:00 AM – 17:00 PM</p>
+                    <p><strong>⏱ Time:</strong> 07:00 AM – 17.00 PM</p>
                     <p><strong>📍 Place:</strong> Gunung Pancar, Sentul, Bogor</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gunung+Pancar+Sentul" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
                     <p><strong>📝 Notes:</strong> Shaded pine forest trails with gentle elevation. Great warm-up hike to test stamina and break in hiking shoes before East Java. Optional sulfur hot springs at the end!</p>
@@ -106,6 +106,7 @@
                     <p><strong>⏱ Time:</strong> 08:30 AM – 01:00 PM</p>
                     <p><strong>📍 Place:</strong> Enchanting Valley by Taman Safari, Cisarua, Bogor</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Enchanting+Valley+Taman+Safari+Bogor" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
+                    <p><strong>📱 TikTok Ref:</strong> <a href="https://vt.tiktok.com/ZSbmoRUnG/" target="_blank" class="text-rose-500 underline font-semibold">View TikTok Inspiration ↗</a></p>
                     <p><strong>📝 Notes:</strong> Scenic highland nature walk near Taman Safari featuring misty mountain views, gardens, and light walking trails. Excellent for cute photos and content creation.</p>
                     <p><strong>💰 Estimated Price:</strong> ~Rp100,000 / person</p>
                 </div>
@@ -220,35 +221,35 @@
             </div>
         </div>
 
-        <!-- TAB 3: PACKING CHECKLIST -->
+        <!-- TAB 3: PACKING CHECKLIST (WITH LOCALSTORAGE SAVING ON PHONE) -->
         <div id="tab-packing" class="tab-content hidden space-y-6">
             <!-- Overall Essentials Card -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
                 <h2 class="text-lg font-bold text-slate-800 mb-3">🎒 Overall General Packing Checklist</h2>
-                <p class="text-xs text-slate-500 mb-4">Core essentials to bring across the entire trip.</p>
-                <div class="space-y-3">
+                <p class="text-xs text-slate-500 mb-4">Core essentials to bring across the entire trip (checkboxes save on your phone automatically!).</p>
+                <div class="space-y-3" id="packingListContainer">
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p1" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">ID Cards / KTP & Train E-Tickets saved on phone (KAI Access app)</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p2" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Cash (for local warungs/tips) & Debit Cards</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p3" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Power bank (10,000–20,000mAh) & charging cables</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p4" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Reusable water bottle</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p5" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Allium-free vegetarian backup snacks, protein bars, & trail mix</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
+                        <input type="checkbox" data-id="p6" onchange="saveCheck(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Personal medications, insect repellent, & blister plasters</span>
                     </label>
                 </div>
@@ -291,12 +292,12 @@
             </div>
         </div>
 
-        <!-- TAB 4: BUDGET & SPLIT PAYMENTS (BLANK / UNPAID) -->
+        <!-- TAB 4: BUDGET & SPLIT PAYMENTS (BLANK UNTIL PAYMENTS ARE MADE) -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
             <!-- Budget Table -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
                 <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Payment Responsibility & Split Breakdown</h2>
-                <p class="text-xs text-slate-500 mb-4">No payments have been made yet. Assigned payers and upfront amounts are left blank until you make bookings.</p>
+                <p class="text-xs text-slate-500 mb-4">No payments have been made yet. Assigned payers and upfront amounts are blank until you make bookings.</p>
                 <table class="w-full text-left text-sm text-slate-600">
                     <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
@@ -401,7 +402,7 @@
 
     </main>
 
-    <!-- JavaScript for Interactivity -->
+    <!-- JavaScript for Interactivity & LocalStorage Checkboxes -->
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -425,6 +426,22 @@
                 icon.textContent = '▼';
             }
         }
+
+        // Save checkbox states to phone local storage
+        function saveCheck(checkbox) {
+            localStorage.setItem(checkbox.getAttribute('data-id'), checkbox.checked);
+        }
+
+        // Load checkbox states on phone load
+        window.onload = function() {
+            const checkboxes = document.querySelectorAll('#packingListContainer input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                const saved = localStorage.getItem(cb.getAttribute('data-id'));
+                if (saved === 'true') {
+                    cb.checked = true;
+                }
+            });
+        };
     </script>
 </body>
 </html>
