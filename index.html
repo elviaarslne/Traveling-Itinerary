@@ -30,7 +30,7 @@
             <button onclick="switchTab('overview')" class="tab-btn py-3 px-4 border-b-2 font-bold text-sm transition-colors border-rose-500 text-rose-600 cursor-pointer whitespace-nowrap rounded-t-xl">Overview ✨</button>
             <button onclick="switchTab('itinerary')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Daily Itinerary 🗓️</button>
             <button onclick="switchTab('packing')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Packing List 🎒</button>
-            <button onclick="switchTab('budget')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Budget 💰</button>
+            <button onclick="switchTab('budget')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Budget & Splits 💰</button>
             <button onclick="switchTab('transport')" class="tab-btn py-3 px-4 border-b-2 font-medium text-sm transition-colors border-transparent text-slate-500 hover:text-rose-500 cursor-pointer whitespace-nowrap rounded-t-xl">Trains 🚆</button>
         </div>
     </nav>
@@ -125,7 +125,7 @@
                     <p><strong>📍 Place:</strong> Gambir Station, Central Jakarta → Stasiun Malang Kota Baru</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gambir+Station+Jakarta" target="_blank" class="text-rose-500 underline font-semibold">Open Gambir Station ↗</a></p>
                     <p><strong>📝 Notes:</strong> Arrive 45–60 mins before departure. Pack allium-free vegetarian backup snacks for the train ride. Sleep overnight in executive carriage.</p>
-                    <p><strong>💰 Estimated Price:</strong> ~Rp650,000 / person</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp770,000 / person</p>
                 </div>
             </div>
 
@@ -197,7 +197,7 @@
                     <p><strong>📍 Place:</strong> Malang Souvenir Shops & Stasiun Malang Kota Baru</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Stasiun+Malang+Kota+Baru" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
                     <p><strong>📝 Notes:</strong> Slow morning, buy local snacks, check out, and board KA Brawijaya (~16:00) back to Jakarta. Sleep overnight on train.</p>
-                    <p><strong>💰 Estimated Price:</strong> ~Rp650,000 / person</p>
+                    <p><strong>💰 Estimated Price:</strong> ~Rp770,000 / person</p>
                 </div>
             </div>
 
@@ -222,28 +222,26 @@
 
         <!-- TAB 3: PACKING CHECKLIST -->
         <div id="tab-packing" class="tab-content hidden space-y-6">
+            <!-- Overall Essentials Card -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">🎒 Cute Packing & Prep Checklist</h2>
+                <h2 class="text-lg font-bold text-slate-800 mb-3">🎒 Overall General Packing Checklist</h2>
+                <p class="text-xs text-slate-500 mb-4">Core essentials to bring across the entire trip.</p>
                 <div class="space-y-3">
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">Broken-in trekking shoes / hiking sneakers with reliable traction</span>
+                        <span class="text-sm text-slate-700">ID Cards / KTP & Train E-Tickets saved on phone (KAI Access app)</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">Lightweight moisture-wicking layers & breathable pants</span>
+                        <span class="text-sm text-slate-700">Cash (for local warungs/tips) & Debit Cards</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">Waterproof windbreaker / rain jacket (November wet season)</span>
+                        <span class="text-sm text-slate-700">Power bank (10,000–20,000mAh) & charging cables</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">Warm hoodie / jacket for cold mountain mornings (Bromo) & train AC</span>
-                    </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">15–20L daypack with rain cover</span>
+                        <span class="text-sm text-slate-700">Reusable water bottle</span>
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
@@ -251,88 +249,137 @@
                     </label>
                     <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
                         <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-sm text-slate-700">Reusable water bottle & power bank</span>
-                    </label>
-                    <label class="flex items-center space-x-3 cursor-pointer p-2.5 hover:bg-pink-50/50 rounded-2xl transition-colors">
-                        <input type="checkbox" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500">
                         <span class="text-sm text-slate-700">Personal medications, insect repellent, & blister plasters</span>
                     </label>
                 </div>
             </div>
+
+            <!-- Day-by-Day Packing Guide Card -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
+                <h2 class="text-lg font-bold text-slate-800 mb-3">🗓️ Day-by-Day Packing Guide</h2>
+                <p class="text-xs text-slate-500 mb-4">Specific items needed for each day's unique activities.</p>
+                <div class="space-y-4 text-sm text-slate-700">
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 8 (Gunung Pancar Hike)</span>
+                        <p class="font-medium text-slate-800">Trekking shoes / hiking sneakers, breathable activewear, small daypack, change of clothes / towel if visiting sulfur hot springs.</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 9 (Enchanting Valley Puncak)</span>
+                        <p class="font-medium text-slate-800">Comfortable walking sneakers, light cardigan/jacket, umbrella or lightweight rain poncho (wet season).</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 10 (Evening Train to Malang)</span>
+                        <p class="font-medium text-slate-800">Neck pillow / travel eye mask, cozy hoodie/sweater for train AC, allium-free midnight snacks.</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 11 (Malang Heritage Walk)</span>
+                        <p class="font-medium text-slate-800">Casual walking shoes, camera / phone for vintage street photography, screenshot of allium-free dietary card.</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 12 (Batu Waterfalls)</span>
+                        <p class="font-medium text-slate-800">Sturdy walking shoes with grip (wet waterfall rocks), waterproof phone pouch, light jacket for cooler mountain air.</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 13 (Mount Bromo Sunrise)</span>
+                        <p class="font-medium text-slate-800">Heavy warm hoodie/jacket (very cold pre-dawn viewpoint!), beanie, gloves, long pants, comfortable sneakers (jeep-only tour).</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/40 rounded-2xl border border-pink-100 space-y-1">
+                        <span class="font-bold text-rose-600 text-xs uppercase tracking-wider">Nov 14–15 (Return Train & Home)</span>
+                        <p class="font-medium text-slate-800">Extra tote bag / space for local Malang snacks/souvenirs, clean change of clothes for travel.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- TAB 4: BUDGET -->
+        <!-- TAB 4: BUDGET & SPLIT PAYMENTS -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
+            <!-- Budget Table -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Realistic Budget Breakdown (2 Travelers)</h2>
+                <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Realistic Budget Breakdown & Split Assignment</h2>
                 <table class="w-full text-left text-sm text-slate-600">
                     <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
                             <th class="p-3 rounded-l-xl">Expense Category</th>
-                            <th class="p-3">Low Estimate</th>
-                            <th class="p-3">Realistic Estimate</th>
-                            <th class="p-3 rounded-r-xl">Conservative</th>
+                            <th class="p-3">Total (2 People)</th>
+                            <th class="p-3">Assigned Payer</th>
+                            <th class="p-3 rounded-r-xl">Per Person</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-pink-50">
                         <tr>
-                            <td class="p-3 font-medium">Jakarta ⇄ Malang Return Train (Gajayana/Brawijaya)</td>
-                            <td class="p-3">Rp2,600,000</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp2,840,000</td>
-                            <td class="p-3">Rp3,200,000</td>
+                            <td class="p-3 font-medium">Jakarta ⇄ Malang Trains (~Rp770k/ticket)</td>
+                            <td class="p-3 font-semibold text-rose-600">Rp3,080,000</td>
+                            <td class="p-3">Traveler 1 (Outbound) / Traveler 2 (Return)</td>
+                            <td class="p-3">Rp1,540,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Local Transport (Ride-hailing + Batu Driver)</td>
-                            <td class="p-3">Rp800,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,100,000</td>
-                            <td class="p-3">Rp1,400,000</td>
+                            <td class="p-3">Traveler 2</td>
+                            <td class="p-3">Rp550,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">3-Star Hotel (3 Nights: Nov 11–13)</td>
-                            <td class="p-3">Rp1,200,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,500,000</td>
-                            <td class="p-3">Rp1,900,000</td>
+                            <td class="p-3">Traveler 1</td>
+                            <td class="p-3">Rp750,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Food & Dietary Needs (All Meals)</td>
-                            <td class="p-3">Rp900,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,200,000</td>
-                            <td class="p-3">Rp1,500,000</td>
+                            <td class="p-3">Shared / Split as incurred</td>
+                            <td class="p-3">Rp600,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Bromo Jeep & Guide Package</td>
-                            <td class="p-3">Rp800,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp1,000,000</td>
-                            <td class="p-3">Rp1,300,000</td>
+                            <td class="p-3">Traveler 2</td>
+                            <td class="p-3">Rp500,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Park Entrance Fees (Hikes + Bromo + Waterfalls)</td>
-                            <td class="p-3">Rp300,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp400,000</td>
-                            <td class="p-3">Rp500,000</td>
+                            <td class="p-3">Traveler 1</td>
+                            <td class="p-3">Rp200,000</td>
                         </tr>
                         <tr>
                             <td class="p-3 font-medium">Contingency Buffer</td>
-                            <td class="p-3">Rp500,000</td>
                             <td class="p-3 font-semibold text-rose-600">Rp800,000</td>
-                            <td class="p-3">Rp1,200,000</td>
+                            <td class="p-3">Shared / Emergency</td>
+                            <td class="p-3">Rp400,000</td>
                         </tr>
                     </tbody>
                     <tfoot class="bg-pink-50/50 font-bold text-slate-800">
                         <tr>
-                            <td class="p-3 rounded-l-xl">TOTAL FOR 2 TRAVELERS</td>
-                            <td class="p-3">Rp7,300,000</td>
-                            <td class="p-3 text-rose-600">Rp9,190,000</td>
-                            <td class="p-3 rounded-r-xl">Rp11,800,000</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 rounded-l-xl">TOTAL PER PERSON</td>
-                            <td class="p-3">Rp3,650,000</td>
-                            <td class="p-3 text-rose-600">Rp4,595,000 ✨</td>
-                            <td class="p-3 rounded-r-xl">Rp5,900,000</td>
+                            <td class="p-3 rounded-l-xl">TOTAL TRIP COST</td>
+                            <td class="p-3 text-rose-600" colspan="3">Rp9,080,000 total (Rp4,540,000 per person) ✨</td>
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+
+            <!-- Interactive Settlement Calculator Card -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 space-y-4">
+                <h2 class="text-lg font-bold text-slate-800">🤝 Interactive Split Payment Calculator</h2>
+                <p class="text-xs text-slate-500">Enter how much each person actually paid upfront for bookings. The calculator will automatically show who needs to pay whom!</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-2">
+                        <label class="block text-xs font-bold text-rose-600 uppercase tracking-wider">Traveler 1 Total Upfront Paid (IDR)</label>
+                        <input type="number" id="t1Paid" value="4580000" oninput="calculateSplit()" class="w-full bg-white p-2.5 rounded-xl border border-pink-200 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-rose-400">
+                        <p class="text-xs text-slate-500">Default preset: Outbound Train (Rp770k) + Hotel (Rp1.5M) + Entrances (Rp400k) + Share of Food/Buffer</p>
+                    </div>
+                    <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-2">
+                        <label class="block text-xs font-bold text-rose-600 uppercase tracking-wider">Traveler 2 Total Upfront Paid (IDR)</label>
+                        <input type="number" id="t2Paid" value="4500000" oninput="calculateSplit()" class="w-full bg-white p-2.5 rounded-xl border border-pink-200 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-rose-400">
+                        <p class="text-xs text-slate-500">Default preset: Return Train (Rp770k) + Local Transport (Rp1.1M) + Bromo Jeep (Rp1M) + Share</p>
+                    </div>
+                </div>
+
+                <div id="settlementResult" class="p-5 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl text-center space-y-1 shadow-xs">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-pink-100">Settlement Result</h3>
+                    <p id="settlementText" class="text-lg font-bold">Calculating...</p>
+                </div>
             </div>
         </div>
 
@@ -347,6 +394,7 @@
                         <li><strong class="text-slate-700">Station Arrival Time:</strong> 17:50 – 18:05 (45–60 mins prior)</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> 18:50 (Nov 10)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 07:06 (Nov 11) at Stasiun Malang Kota Baru</li>
+                        <li><strong class="text-slate-700">Price per ticket:</strong> ~Rp770,000 (Paid by Traveler 1)</li>
                     </ul>
                 </div>
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
@@ -356,6 +404,7 @@
                         <li><strong class="text-slate-700">Departure Station:</strong> Stasiun Malang Kota Baru</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> ~16:00 (Nov 14)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 03:50 – 04:10 (Nov 15) at Gambir Station</li>
+                        <li><strong class="text-slate-700">Price per ticket:</strong> ~Rp770,000 (Paid by Traveler 2)</li>
                     </ul>
                 </div>
             </div>
@@ -363,7 +412,7 @@
 
     </main>
 
-    <!-- JavaScript for Interactivity -->
+    <!-- JavaScript for Interactivity & Split Calculation -->
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
@@ -374,6 +423,10 @@
             document.getElementById('tab-' + tabId).classList.remove('hidden');
             event.currentTarget.classList.add('border-rose-500', 'text-rose-600', 'font-bold');
             event.currentTarget.classList.remove('border-transparent', 'text-slate-500', 'font-medium');
+            
+            if (tabId === 'budget') {
+                calculateSplit();
+            }
         }
 
         function toggleAccordion(dayId) {
@@ -387,6 +440,29 @@
                 icon.textContent = '▼';
             }
         }
+
+        function calculateSplit() {
+            const t1 = parseFloat(document.getElementById('t1Paid').value) || 0;
+            const t2 = parseFloat(document.getElementById('t2Paid').value) || 0;
+            const total = t1 + t2;
+            const fairShare = total / 2;
+
+            const diff = t1 - fairShare;
+            const textEl = document.getElementById('settlementText');
+
+            if (diff > 0) {
+                textEl.innerHTML = `✨ Traveler 2 owes Traveler 1: <strong class="text-xl">Rp${Math.round(diff).toLocaleString('id-ID')}</strong> ✨`;
+            } else if (diff < 0) {
+                textEl.innerHTML = `✨ Traveler 1 owes Traveler 2: <strong class="text-xl">Rp${Math.round(Math.abs(diff)).toLocaleString('id-ID')}</strong> ✨`;
+            } else {
+                textEl.innerHTML = `🎉 All even! Nobody owes anything. 🎉`;
+            }
+        }
+
+        // Run calculation on load
+        window.onload = function() {
+            calculateSplit();
+        };
     </script>
 </body>
 </html>
