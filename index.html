@@ -85,7 +85,7 @@
                     <span id="icon-day1" class="text-rose-400 font-bold">▼</span>
                 </button>
                 <div id="content-day1" class="hidden p-5 border-t border-pink-50 bg-pink-50/30 space-y-3 text-sm text-slate-600">
-                    <p><strong>⏱ Time:</strong> 07:00 AM – 17.00 PM</p>
+                    <p><strong>⏱ Time:</strong> 07:00 AM – 17:00 PM</p>
                     <p><strong>📍 Place:</strong> Gunung Pancar, Sentul, Bogor</p>
                     <p><strong>🗺 Google Maps:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Gunung+Pancar+Sentul" target="_blank" class="text-rose-500 underline font-semibold">Open in Google Maps ↗</a></p>
                     <p><strong>📝 Notes:</strong> Shaded pine forest trails with gentle elevation. Great warm-up hike to test stamina and break in hiking shoes before East Java. Optional sulfur hot springs at the end!</p>
@@ -221,7 +221,7 @@
             </div>
         </div>
 
-        <!-- TAB 3: PACKING CHECKLIST (WITH LOCALSTORAGE SAVING ON PHONE) -->
+        <!-- TAB 3: PACKING CHECKLIST -->
         <div id="tab-packing" class="tab-content hidden space-y-6">
             <!-- Overall Essentials Card -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
@@ -292,83 +292,50 @@
             </div>
         </div>
 
-        <!-- TAB 4: BUDGET & SPLIT PAYMENTS (BLANK UNTIL PAYMENTS ARE MADE) -->
+        <!-- TAB 4: BUDGET & INTERACTIVE SPLITS -->
         <div id="tab-budget" class="tab-content hidden space-y-6">
-            <!-- Budget Table -->
+            <!-- Interactive Budget Table -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 overflow-x-auto">
-                <h2 class="text-lg font-bold text-slate-800 mb-4">💰 Payment Responsibility & Split Breakdown</h2>
-                <p class="text-xs text-slate-500 mb-4">No payments have been made yet. Assigned payers and upfront amounts are blank until you make bookings.</p>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">💰 Interactive Split Payment Tracker</h2>
+                <p class="text-xs text-slate-500 mb-4">Check who paid for each booking directly on your phone. Changes save automatically!</p>
                 <table class="w-full text-left text-sm text-slate-600">
                     <thead class="bg-pink-50 text-rose-700 uppercase text-xs">
                         <tr>
                             <th class="p-3 rounded-l-xl">Expense Category</th>
-                            <th class="p-3">Total Cost (Estimated)</th>
-                            <th class="p-3">Assigned Payer</th>
-                            <th class="p-3 rounded-r-xl">Amount Paid Upfront</th>
+                            <th class="p-3">Total Cost</th>
+                            <th class="p-3 text-center">Elvia Paid [✓]</th>
+                            <th class="p-3 rounded-r-xl text-center">Chiara Paid [✓]</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-pink-50">
-                        <tr>
-                            <td class="p-3 font-medium">Jakarta ⇄ Malang Trains (2 Tickets Each)</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp3,080,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium">3-Star Hotel (3 Nights: Nov 11–13)</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp1,500,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium">Local Transport (Ride-hailing + Batu Driver)</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp1,100,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium">Bromo Jeep & Guide Package</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp1,000,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium">Park Entrance Fees (Hikes + Bromo + Waterfalls)</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp400,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 font-medium">Food & Contingency Buffer (Shared)</td>
-                            <td class="p-3 font-semibold text-rose-600">Rp2,000,000</td>
-                            <td class="p-3 text-slate-400">-</td>
-                            <td class="p-3 text-slate-400">-</td>
-                        </tr>
+                    <tbody id="budgetTableBody" class="divide-y divide-pink-50">
+                        <!-- Populated dynamically via JS -->
                     </tbody>
                 </table>
             </div>
 
-            <!-- Permanent Settlement Summary (Blank / Unpaid) -->
+            <!-- Live Settlement Summary Card -->
             <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100 space-y-4">
-                <h2 class="text-lg font-bold text-slate-800">🤝 Permanent Settlement Summary</h2>
-                <p class="text-xs text-slate-500">No payments have been logged yet. Once you make a payment (Elvia/Chiara), let me know and we will update this section!</p>
+                <h2 class="text-lg font-bold text-slate-800">🤝 Live Settlement Summary</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-1">
                         <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Elvia Paid Upfront Total</span>
-                        <p class="text-xl font-bold text-slate-800">Rp0</p>
-                        <p class="text-xs text-slate-500">No payments yet</p>
+                        <p id="elviaPaidTotal" class="text-xl font-bold text-slate-800">Rp0</p>
                     </div>
                     <div class="p-4 bg-pink-50/50 rounded-2xl border border-pink-100 space-y-1">
                         <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Chiara Paid Upfront Total</span>
-                        <p class="text-xl font-bold text-slate-800">Rp0</p>
-                        <p class="text-xs text-slate-500">No payments yet</p>
+                        <p id="chiaraPaidTotal" class="text-xl font-bold text-slate-800">Rp0</p>
                     </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-2xl text-center text-xs text-slate-500 flex justify-around">
+                    <span>Total Trip Cost: <strong id="totalTripCost" class="text-slate-700">Rp0</strong></span>
+                    <span>Fair Share Per Person: <strong id="fairShareCost" class="text-slate-700">Rp0</strong></span>
                 </div>
 
                 <div class="p-5 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-2xl text-center space-y-1 shadow-xs">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-pink-100">Final Settlement Transfer</h3>
-                    <p class="text-lg font-bold">✨ No payments made yet. Balance is Rp0 ✨</p>
+                    <p id="settlementMessage" class="text-lg font-bold">✨ Check expenses above to calculate balance ✨</p>
                 </div>
             </div>
         </div>
@@ -384,7 +351,7 @@
                         <li><strong class="text-slate-700">Station Arrival Time:</strong> 17:50 – 18:05 (45–60 mins prior)</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> 18:50 (Nov 10)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 07:06 (Nov 11) at Stasiun Malang Kota Baru</li>
-                        <li><strong class="text-slate-700">Booked & Paid by:</strong> <span class="text-slate-400 italic">Not booked yet</span></li>
+                        <li><strong class="text-slate-700">Cost:</strong> ~Rp1,540,000 total (2 tickets)</li>
                     </ul>
                 </div>
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-pink-100">
@@ -394,7 +361,7 @@
                         <li><strong class="text-slate-700">Departure Station:</strong> Stasiun Malang Kota Baru</li>
                         <li><strong class="text-slate-700">Departure Time:</strong> ~16:00 (Nov 14)</li>
                         <li><strong class="text-slate-700">Arrival Time:</strong> 03:50 – 04:10 (Nov 15) at Gambir Station</li>
-                        <li><strong class="text-slate-700">Booked & Paid by:</strong> <span class="text-slate-400 italic">Not booked yet</span></li>
+                        <li><strong class="text-slate-700">Cost:</strong> ~Rp1,540,000 total (2 tickets)</li>
                     </ul>
                 </div>
             </div>
@@ -402,8 +369,17 @@
 
     </main>
 
-    <!-- JavaScript for Interactivity & LocalStorage Checkboxes -->
+    <!-- JavaScript for Interactivity, Checkboxes & Live Budget Calculation -->
     <script>
+        const expenses = [
+            { id: 'exp1', name: 'Jakarta ⇄ Malang Trains (2 Tickets Each)', cost: 3080000 },
+            { id: 'exp2', name: '3-Star Hotel (3 Nights: Nov 11–13)', cost: 1500000 },
+            { id: 'exp3', name: 'Local Transport (Ride-hailing + Batu Driver)', cost: 1100000 },
+            { id: 'exp4', name: 'Bromo Jeep & Guide Package', cost: 1000000 },
+            { id: 'exp5', name: 'Park Entrance Fees (Hikes + Bromo + Waterfalls)', cost: 400000 },
+            { id: 'exp6', name: 'Food & Contingency Buffer (Shared)', cost: 2000000 }
+        ];
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -413,6 +389,10 @@
             document.getElementById('tab-' + tabId).classList.remove('hidden');
             event.currentTarget.classList.add('border-rose-500', 'text-rose-600', 'font-bold');
             event.currentTarget.classList.remove('border-transparent', 'text-slate-500', 'font-medium');
+            
+            if(tabId === 'budget') {
+                renderBudgetTable();
+            }
         }
 
         function toggleAccordion(dayId) {
@@ -427,20 +407,89 @@
             }
         }
 
-        // Save checkbox states to phone local storage
+        // Save packing checkbox states
         function saveCheck(checkbox) {
             localStorage.setItem(checkbox.getAttribute('data-id'), checkbox.checked);
         }
 
-        // Load checkbox states on phone load
+        // Render & Calculate Budget Table
+        function renderBudgetTable() {
+            const tbody = document.getElementById('budgetTableBody');
+            tbody.innerHTML = '';
+            let totalCost = 0;
+            let elviaPaid = 0;
+            let chiaraPaid = 0;
+
+            expenses.forEach(exp => {
+                totalCost += exp.cost;
+                const elviaChecked = localStorage.getItem(`exp_${exp.id}_elvia`) === 'true';
+                const chiaraChecked = localStorage.getItem(`exp_${exp.id}_chiara`) === 'true';
+
+                if (elviaChecked) elviaPaid += exp.cost;
+                if (chiaraChecked) chiaraPaid += exp.cost;
+
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-pink-50 hover:bg-pink-50/20';
+                tr.innerHTML = `
+                    <td class="p-3 font-medium text-slate-800">${exp.name}</td>
+                    <td class="p-3 font-semibold text-rose-600">Rp${exp.cost.toLocaleString('id-ID')}</td>
+                    <td class="p-3 text-center">
+                        <input type="checkbox" data-exp="${exp.id}" data-payer="elvia" ${elviaChecked ? 'checked' : ''} onchange="handlePayerChange(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500 cursor-pointer">
+                    </td>
+                    <td class="p-3 text-center">
+                        <input type="checkbox" data-exp="${exp.id}" data-payer="chiara" ${chiaraChecked ? 'checked' : ''} onchange="handlePayerChange(this)" class="w-5 h-5 text-rose-500 rounded border-pink-200 focus:ring-rose-400 accent-rose-500 cursor-pointer">
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Update UI elements
+            document.getElementById('elviaPaidTotal').textContent = `Rp${elviaPaid.toLocaleString('id-ID')}`;
+            document.getElementById('chiaraPaidTotal').textContent = `Rp${chiaraPaid.toLocaleString('id-ID')}`;
+            document.getElementById('totalTripCost').textContent = `Rp${totalCost.toLocaleString('id-ID')}`;
+            
+            const fairShare = totalCost / 2;
+            document.getElementById('fairShareCost').textContent = `Rp${Math.round(fairShare).toLocaleString('id-ID')}`;
+
+            const diff = elviaPaid - fairShare;
+            const settlementEl = document.getElementById('settlementMessage');
+
+            if (elviaPaid === 0 && chiaraPaid === 0) {
+                settlementEl.innerHTML = `✨ Check expense boxes above as you make payments ✨`;
+            } else if (diff > 0) {
+                settlementEl.innerHTML = `✨ Chiara needs to pay Elvia: <strong class="text-xl underline">Rp${Math.round(diff).toLocaleString('id-ID')}</strong> ✨`;
+            } else if (diff < 0) {
+                settlementEl.innerHTML = `✨ Elvia needs to pay Chiara: <strong class="text-xl underline">Rp${Math.round(Math.abs(diff)).toLocaleString('id-ID')}</strong> ✨`;
+            } else {
+                settlementEl.innerHTML = `🎉 All balanced! Nobody owes anything. 🎉`;
+            }
+        }
+
+        function handlePayerChange(checkbox) {
+            const expId = checkbox.getAttribute('data-exp');
+            const payer = checkbox.getAttribute('data-payer');
+            const otherPayer = payer === 'elvia' ? 'chiara' : 'elvia';
+
+            // Ensure mutual exclusivity per row
+            if (checkbox.checked) {
+                localStorage.setItem(`exp_${expId}_${payer}`, 'true');
+                localStorage.setItem(`exp_${expId}_${otherPayer}`, 'false');
+            } else {
+                localStorage.setItem(`exp_${expId}_${payer}`, 'false');
+            }
+            renderBudgetTable();
+        }
+
+        // Load saved states on startup
         window.onload = function() {
+            // Load packing checkboxes
             const checkboxes = document.querySelectorAll('#packingListContainer input[type="checkbox"]');
             checkboxes.forEach(cb => {
                 const saved = localStorage.getItem(cb.getAttribute('data-id'));
-                if (saved === 'true') {
-                    cb.checked = true;
-                }
+                if (saved === 'true') cb.checked = true;
             });
+            // Initial render of budget table in background
+            renderBudgetTable();
         };
     </script>
 </body>
